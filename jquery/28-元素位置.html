@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .father {
+            position: relative;
+            margin: 100px;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            overflow: hidden;
+        }
+        
+        .son {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        $(function() {
+            // 1.offset返回的是相对于文档的左距离left：100和顶部距离top ：100  **返回值不带单位
+            console.log($(".son").offset());
+            console.log($(".son").offset().left); //100
+            // 手动修改offset的left和top的值
+            console.log($(".son").offset({
+                left: 150,
+                top: 150
+            }));
+            // 2.position返回的是带有定位的父级位置的偏移，如果父级没有定位，则以文档为准，**返回值不带单位
+            // console.log($(".son").position()); 50X50
+
+        })
+    </script>
+</body>
+
+</html>

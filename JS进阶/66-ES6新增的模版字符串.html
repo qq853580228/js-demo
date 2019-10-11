@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.模板字符串可以解析变量
+        var name = `张三李四`;
+        var sayHi = `大家好，我叫${name}，喜欢唱，跳，rap，打篮球`;
+        console.log(sayHi);
+
+        // 2.在模板字符串中可以换行
+        var obj = {
+            name: '蔡旭昆',
+            age: 18,
+            sex: '女'
+        }
+        var html = `
+        <div>我的名字是：${obj.name}</div>
+        <div>今年${obj.age}岁</div>
+        <div>我的性别是：${obj.sex}</div>
+        `
+        console.log(html);
+
+        // 3.在模板字符串中可以调用函数
+
+        function fn() {
+            return '我是fn函数';
+        }
+        var result = `我是模板字符串  ${fn()}`;
+        console.log(result);
+    </script>
+</body>
+
+</html>

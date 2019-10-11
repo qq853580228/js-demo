@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.闭包：指有权访问另一个函数作用域中变量的一个**函数**
+        // 2.简单理解就是，一个作用域可以访问另一个作用域函数内部的变量，此时的fn函数就形成闭包
+        // 3.闭包的主要作用：延伸了变量的主要范围
+        /* function fn() {
+            var num = 20;
+
+            function fun() {
+                console.log(num); fun()使用了fn()的num
+
+            }
+            fun();
+        }
+        fn(); */
+        function fn() {
+            var num = 20;
+
+            /* function fun() {
+                console.log(num);
+
+            }
+            return fun; */
+            return function() {
+                console.log(num);
+            }
+        }
+
+        var f = fn();
+        f();
+        /* 类似于 f=fun(){
+            console.log(num);
+        } */
+    </script>
+</body>
+
+</html>

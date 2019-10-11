@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea><button>提交</button>
+    <div></div>
+    <script>
+        // replace实现正则表达式的替换
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function() {
+            // g表示全局匹配，i忽略大小写，gi表示全局匹配且忽略大小写
+            div.innerHTML = text.value.replace(/激情|傻逼/g, '**');
+        }
+    </script>
+</body>
+
+</html>

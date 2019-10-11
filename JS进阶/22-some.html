@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // some（）方法用于检测数组中的元素是否满足指定条件，通俗的讲，就是查找数组中满足条件的元素
+        // 返回的值是布尔值，如果找到满足条件的元素返回true，找不到返回false
+        // 如果找到第一个满足条件的元素，则终止循环，不再继续查找
+        var arr = [1, 8, 66, 25, 74];
+        var result = arr.some(function(value, index) {
+            return value >= 20;
+        });
+        console.log(result);
+    </script>
+</body>
+
+</html>

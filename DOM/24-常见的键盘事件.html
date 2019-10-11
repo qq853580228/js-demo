@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 键盘事件执行顺序：keydown-keypress-keyup，keydown和keypress的区别就是，keypress不识别功能性按键，如ctrl、shift、esc等
+        document.addEventListener('keydown', function(e) {
+            console.log('按下down');
+
+
+        });
+        document.addEventListener('keypress', function() {
+            console.log('按下press');
+
+        });
+        document.addEventListener('keyup', function() {
+            console.log('弹起');
+
+        });
+    </script>
+</body>
+
+</html>

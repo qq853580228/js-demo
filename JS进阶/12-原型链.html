@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Star.prototype.sing = function() {
+                console.log('我会唱歌');
+            }
+            // 
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 19);
+        // 1.只要是对象，那么都会有__proto__这个对象原型属性，指向原型对象prototype
+        console.log(Star.prototype);
+        // 2.Star的原型对象prototype的__proto__指向的是Object原型对象   Object.prototype
+        console.log(Star.prototype.__proto__);
+        // 3.Object的原型对象prototype中的__proto__指向  null
+        console.log(Object.prototype.__proto__); //null
+    </script>
+</body>
+
+</html>

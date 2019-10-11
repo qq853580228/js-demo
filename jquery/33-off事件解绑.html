@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="weibo">
+
+    </div>
+    <ul>
+        <li>啦啦啦</li>
+        <li>啦啦啦</li>
+        <li>啦啦啦</li>
+        <li>啦啦啦</li>
+    </ul>
+    <script>
+        $(function() {
+            $("div").on({
+                click: function() {
+                    alert(1);
+                },
+                mouseleave: function() {
+                    alert(2);
+                }
+            });
+            // $("div").off();解绑了div身上的所有事件
+            $("div").off("mouseleave"); //这个是解除了div鼠标离开事件
+            // 事件委托
+            /*  $("ul").on("click mouseenter", "li", function() {
+                 alert(11);
+             }); */
+            // 解绑ul所有事件委托
+            // $("ul").off();
+            // 解绑ul单个事件委托
+            // $("ul").off("mouseenter", "li");
+            // 触发一次之后销毁事件委托
+            $("ul").one("click", "li", function() {
+                alert(33);
+            });
+        });
+    </script>
+</body>
+
+</html>

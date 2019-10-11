@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>原先的li</li>
+    </ul>
+    <div class="test">我是原先的div</div>
+    <script>
+        $(function() {
+            var li = $("<li>我是后来创建的li</li>")
+            var div = $("<div>我是后来创建的div</div>")
+                // 在ul内部添加，并且放到最后面
+                // $("ul").append(li);
+                // 在ul内部添加，并且放到最前面
+            $("ul").prepend(li);
+            // 外部添加，成为原来元素的兄弟,放到最前面
+            // $("div").before(div);
+            // 外部添加，成为原来元素的兄弟,放到最后面
+            $("div").after(div);
+            // 直接删除整个元素包括里面的内容
+            // $("ul").remove();
+            // 删除元素里面的内容，相当于   $("ul").html()
+            $("ul").empty();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // apply（）方法的应用
+        // 1.也是调用函数
+        // 2.修改this指向
+        // 3.参数必须为数组
+        // 4.apply的主要应用  我们可以利用apply 借助于数组内置对象求最大值 最小值等等，第一个参数不要写null，最好写调用者
+        // 5.与call方法不同的是传递的参数不同
+        var o = {
+            name: 'red'
+        }
+
+        function fn(arr) {
+            console.log(this);
+            console.log(arr);
+        }
+        // fn();
+        fn.apply(o, ['pink']);
+        var arr = [55, 66, 22, 88, 33];
+        var max = Math.max.apply(Math, arr);
+        var min = Math.min.apply(Math, arr);
+        console.log(max, min);
+    </script>
+</body>
+
+</html>

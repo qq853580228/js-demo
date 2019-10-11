@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./animate.js"></script>
+    <style>
+        body {
+            color: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .table-list {
+            margin: 100px auto;
+            width: 1038px;
+            position: relative;
+            height: 38px;
+        }
+        
+        .table-list ul {
+            list-style: none;
+            width: 998px;
+            height: 38px;
+            border-bottom: 1px solid #e4393c;
+            font-size: 14px;
+            padding: 0;
+            position: absolute;
+        }
+        
+        .table-list ul li {
+            float: left;
+            text-align: center;
+            line-height: 38px;
+            cursor: pointer;
+        }
+        
+        .current {
+            background: url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3380009445,3368932447&fm=16&gp=0.jpg') center brown;
+            height: 38px;
+            width: 120px;
+            position: absolute;
+            opacity: .6;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="table-list">
+        <span class="current"></span>
+        <ul>
+            <li style="width: 120px">商品介绍</li>
+            <li style="width: 120px">规格与包装</li>
+            <li style="width: 120px">售后保障</li>
+            <li style="width: 120px">商品评价(23万+)</li>
+            <li style="width: 120px">手机社区</li>
+            <li style="width: 120px">手机社区</li>
+            <li style="width: 120px">手机社区</li>
+            <li style="width: 120px">手机社区</li>
+        </ul>
+    </div>
+
+    <script>
+        var cloud = document.querySelector('.current');
+        var tableList = document.querySelector('.table-list');
+        var lis = tableList.querySelectorAll('li');
+        //控制图片初始位置
+        var current = 0;
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('mouseenter', function() {
+                Time(cloud, this.offsetLeft);
+            });
+            lis[i].addEventListener('mouseleave', function() {
+                Time(cloud, current);
+            });
+            lis[i].addEventListener('click', function() {
+                current = this.offsetLeft;
+
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            // 单写属性，得到的就是属性width的值 200px
+            /* console.log($('div').css('width');) */
+            // 如果属性值为数字，则不需要加单位和引号，属性名一定要加引号
+            /* $('div').css('width', '300px'); */
+            /* $('div').css('width', 300); */
+
+            $('div').css({
+                // 参数可以是对象属性名和属性值用冒号隔开，属性可以不用加引号，值不是数字要加引号，  *驼峰命名法*
+                /* 'width': '300px',
+                'height': '300px',
+                'backgroundColor': 'red' */
+                width: 300,
+                height: 300,
+                backgroundColor: 'red'
+            });
+        });
+    </script>
+</body>
+
+</html>

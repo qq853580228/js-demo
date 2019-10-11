@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6新增： let关键字就是用来声明变量的，使用let关键字声明的变量具有块级作用域
+        // var 关键字声明的变量不具又块级作用域
+        if (true) {
+            let b = 20;
+
+            if (true) {
+                let c = 30;
+                var num = 40;
+            }
+            console.log(b);
+            console.log(num);
+
+            // console.log(c); //此时c会报错未被定义，因为let声明变量具有块级作用域的原因，导致在if{}外无法访问里面的变量
+        }
+        // 防止循环变量变成全局变量
+        for (let i = 0; i < 2; i++) {
+            // 虽然i不在for{}里面声明，但i还是通过let声明出来的变量，所以i在for{}外访问不到，而var i 就被可以访问，值为2
+        }
+        // console.log(i);
+
+        // 使用let声明的变量是没有变量提升的，所以只能先声明后使用，而var声明的变量就有变量提升，var 具有函数级作用域
+        // console.log(aa);此时就会报错，因为是先使用了a再用let声明
+        let a = 100;
+        // 使用let关键字声明的变量具有暂时性死区特性
+        // 即使全局var 声明了num这个变量，但是在块级作用域中用let声明了num变量，num就会和整个if{}块级作用域绑定，此时的num和外部的num是没有关系的
+    </script>
+</body>
+
+</html>

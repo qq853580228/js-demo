@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        .back {
+            position: fixed;
+            display: none;
+            width: 40px;
+            height: 60px;
+            bottom: 100px;
+            right: 10px;
+            background-color: pink;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        
+        .container {
+            width: 800px;
+            height: 800px;
+            margin: 300px auto 0;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">返回顶部</div>
+    <div class="container"></div>
+    <script>
+        $(function() {
+            var boxTop = $(".container").offset().top;
+            $(window).scroll(function() {
+                if ($(document).scrollTop() >= boxTop) {
+                    $(".back").fadeIn();
+                } else {
+                    $(".back").fadeOut();
+                }
+            });
+            $(".back").click(function() {
+                // $(document).scrollTop(0);
+                $("body,html").stop().animate({ //只有元素才能做动画，写文档document会报错
+                    scrollTop: 0
+                }, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>

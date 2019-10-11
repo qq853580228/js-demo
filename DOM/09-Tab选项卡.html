@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            color: #666;
+        }
+        
+        .table {
+            margin: 100px auto;
+            width: 1038px;
+        }
+        
+        .table-list ul {
+            list-style: none;
+            width: 998px;
+            height: 38px;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #e4393c;
+            font-size: 14px;
+            padding: 0;
+        }
+        
+        .table-list ul li {
+            float: left;
+            line-height: 38px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .current {
+            background-color: #e4393c;
+            color: white;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table">
+        <div class="table-list">
+            <ul>
+                <li style="width: 106px" class="current">商品介绍</li>
+                <li style="width: 120px">规格与包装</li>
+                <li style="width: 106px">售后保障</li>
+                <li style="width: 156px">商品评价(23万+)</li>
+                <li style="width: 106px">手机社区</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="table-con">
+            <div class="item" style="display: block">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+        </div>
+    </div>
+    <script>
+        var tableLists = document.querySelector('.table-list').querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        for (var i = 0; i < tableLists.length; i++) {
+            tableLists[i].setAttribute('index', i);
+            tableLists[i].onclick = function() {
+                for (var i = 0; i < tableLists.length; i++) {
+                    tableLists[i].style.backgroundColor = '#f7f7f7';
+                    tableLists[i].style.color = '#666';
+                    tableLists[i].style.cursor = 'pointer'
+                }
+                this.style.backgroundColor = '#e4393c';
+                this.style.color = 'white';
+                this.style.cursor = 'default';
+                var index = this.getAttribute('index');
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

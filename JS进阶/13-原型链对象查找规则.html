@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Star.prototype.sing = function() {
+            console.log('我会唱歌');
+        }
+
+        var ldh = new Star('刘德华', 18);
+        // ldh.sex='男';
+        // 1.先从ldh实例中查找有没有sex成员，结果为  男
+        // Star.prototype.sex = '女';
+        // 2.再从Star的prototype原型对象中查找有没有sex成员，结果为   女
+        // Object.prototype.sex = '男';
+        // 3.最后从Object的prototype原型对象中查找有没有sex成员，结果为  男
+        // 4.都找不到，结果就位underfined
+        // 5.原型链的方式查找，只有Object中才toString这个方法
+        console.log(ldh.sex);
+    </script>
+</body>
+
+</html>

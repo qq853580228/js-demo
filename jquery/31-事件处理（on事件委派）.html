@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>我是小li</li>
+        <li>我是小li</li>
+        <li>我是小li</li>
+        <li>我是小li</li>
+        <li>我是小li</li>
+    </ul>
+    <ol></ol>
+    <script>
+        $(function() {
+            // on可以实现事件委派
+            // 触发对象是ul里的li，this指向触发对象li
+            $("ul").on("click", "li", function() {
+                console.log($(this).index());
+
+            });
+            $("ol").on("click", "li", function() {
+                alert("ol");
+            });
+            // on可以实现动态创建的元素也绑定点击事件，即li是后面创建并插入到内容中
+            var li = "<li>我是后来创建的</li>";
+            $("ol").append(li);
+        });
+    </script>
+</body>
+
+</html>

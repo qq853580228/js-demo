@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .right {
+            color: green;
+        }
+        
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="">用户名：</label><input type="text" class="uname" placeholder="请输入用户名"><span></span>
+    <script>
+        //量词是设定某个模式出现的次数
+        // {3,16}中间不要有空格
+        /* var reg = /^[a-zA-Z0-9_-]{3,16}$/;
+        console.log(reg.test('a')); //false
+        console.log(reg.test('1a')); //false
+        console.log(reg.test('18')); //false
+        console.log(reg.test('aA')); //false
+        console.log(reg.test('andy-red')); //true
+        console.log(reg.test('andy_red')); //true
+        console.log(reg.test('andy_0A7-')); //true
+        console.log(reg.test('andy/red')); //false */
+        var reg = /^[a-zA-Z0-9_-]{6,16}$/;
+        var ipt = document.querySelector('.uname');
+        var span = document.querySelector('span');
+        ipt.onblur = function() {
+            if (reg.test(this.value)) {
+                span.className = 'right';
+                span.innerHTML = '√';
+            } else {
+                span.className = 'wrong';
+                span.innerHTML = '请输入正确的用户名！';
+            }
+        }
+    </script>
+</body>
+
+</html>

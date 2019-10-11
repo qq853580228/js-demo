@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* name = 'window name';
+                        var obj = {
+                            name: 'obj name',
+                            getName: function() {
+                                return function() {
+                                    return this.name;
+                                }
+                            }
+                        }
+                         // 类似于
+                var f=function() {
+                            return this.name;
+                        }
+                    f();
+                        console.log(obj.getName()()); //输出的是window name，无闭包 */
+        name = 'window name';
+        var obj = {
+            name: 'obj name',
+            getName: function() {
+                var that = this;
+                return function() {
+                    return that.name;
+                }
+            }
+        }
+        console.log(obj.getName()());
+        // 类似于
+        var f = function() {
+            return that.name; //that指向调用者obj
+        }
+        f();
+    </script>
+</body>
+
+</html>

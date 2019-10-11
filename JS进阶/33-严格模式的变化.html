@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        // 1.变量名必须先声明再使用
+        // num = 1;
+        // var num = 1;
+        // delete num; 2.在严格模式下不能随意删除已经定义好的变量，不然会报错
+        // console.log(num);
+        // 3. ****严格模式下，全局作用域的函数this指向的是undefined****
+        /* function fn() {
+            console.log(this);
+
+        }
+        fn(); */
+        // 4.严格模式下，如果构造函数不加new调用，this指向的是undefined，如果再给它赋值，就会报错
+        /* function Star() {
+            this.sex = '男'
+        }
+        Star(); */
+        // 5.严格模式下，定时器的this指向还是window
+        /* setTimeout(function() {
+            console.log(this);
+
+        }, 2000); */
+        // 6.严格模式下，函数形参不允许重名
+        /* function fn(a, a) {
+            console.log(a + a); 普通模式下，a=1,a=2,所以a+a结果为4
+
+        }
+        fn(1, 2); */
+        // 7.非函数代码块下不允许再声明函数，比如if{},for(){}的大括号里
+    </script>
+</body>
+
+</html>

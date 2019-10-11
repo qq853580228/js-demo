@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .register {
+            width: 600px;
+            margin: 100px auto;
+        }
+        
+        .message {
+            color: #999;
+            font-size: 12px;
+            display: inline-block;
+            margin: 0;
+            padding-left: 10px;
+        }
+        
+        .init {
+            color: #999;
+        }
+        
+        .wrong {
+            color: red;
+        }
+        
+        .right {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <label for=""><span style="color:red">*</span>设置密码</label>
+        <input type="password" class="ipt" maxlength="16">
+        <p class="message"></p>
+    </div>
+    <script>
+        var pwd = document.querySelector('input');
+        var p = document.querySelector('p');
+        pwd.onfocus = function() {
+            p.innerText = '请输入6~16位密码';
+            // p.style.color = '#999';
+            p.className = 'message init';
+        }
+        pwd.onblur = function() {
+            if (this.value === '') {
+                p.innerText = 'X请输入登陆密码';
+                // p.style.color = 'red';
+                p.className = 'message wrong';
+            } else if (this.value.length < 6) {
+                p.innerText = 'X密码较短，最短支持6个字符';
+                // p.style.color = 'red';
+                p.className = 'message wrong';
+            } else {
+                p.innerText = '√';
+                p.className = 'message right'
+            }
+        }
+    </script>
+</body>
+
+</html>

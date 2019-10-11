@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 筛选数组,返回的结果是新数组，所以要用数组接受
+        var arr = [13, 66, 4, 99, 88];
+        var newArr = arr.filter(function(value, index) {
+            /* return value >= 20; */
+            return value % 2 === 0; //需要return
+        });
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

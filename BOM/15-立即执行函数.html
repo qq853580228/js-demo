@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 立即执行函数：不需要通过调用就能执行的函数，它有两种写法
+        // 1.(function(){})()
+        // 2.(function(){}())
+        // 3.创建了一个独立的作用域，里面的变量都是局部变量，可以避免命名冲突问题
+        (function() {
+            console.log(1); //打印1
+
+        })();
+        (function(b) {
+            console.log(b); //打印2
+
+        })(2);
+        (function(a, b) {
+            console.log(a + b); //打印3
+
+        })(1, 2);
+        (function() {
+            console.log(4); //打印4
+
+        }());
+        (function(b) {
+            console.log(b); //打印5
+
+        }(5));
+        (function(a, b) {
+            console.log(a + b); //打印9
+
+        }(4, 5));
+    </script>
+</body>
+
+</html>

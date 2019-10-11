@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'andy',
+            age: 18,
+            say: () => {
+                console.log(this.age); //this指向的是window，是因为 ***对象不能产生作用域*** ，打印结果是undefined
+
+            }
+        }
+        obj.say();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.自定义函数
+        function fn() {}
+        // 2.匿名函数
+        var fn1 = function() {}
+            // 3.利用new Function('参数','参数','函数体');这种方式比较麻烦，执行效率低，很少使用
+        var f = new Function('a', 'b', 'console.log(a+b)');
+        f(1, 2);
+        console.log(f.prototype);
+        console.log(f instanceof Object); //true
+        //4.所有函数都是Function实例对象
+    </script>
+</body>
+
+</html>

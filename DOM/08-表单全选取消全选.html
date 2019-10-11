@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .table {
+            margin: 120px auto;
+            border-collapse: collapse;
+            width: 270px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        
+        .table thead {
+            background-color: dodgerblue;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .table tbody {
+            background-color: #eec;
+            color: #777;
+        }
+        
+        td {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td><input type="checkbox" name="" id="check"></td>
+                <td>商品</td>
+                <td>价钱</td>
+            </tr>
+        </thead>
+        <tbody id="tbodyCheck">
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPhone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr class="Tr">
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPad Air</td>
+                <td>2000</td>
+            </tr>
+            <tr id="Tr">
+                <td><input type="checkbox" name="" id=""></td>
+                <td>Apple Watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+<script>
+    var trs = document.querySelector('tbody').querySelectorAll('tr');
+    var theadChe = document.getElementById('check');
+    var tbChecks = document.getElementById('tbodyCheck').getElementsByTagName('input');
+
+
+    for (var i = 0; i < trs.length; i++) {
+        trs[i].onmouseover = function() {
+            this.style.backgroundColor = '#fff';
+        }
+        trs[i].onmouseout = function() {
+            this.style.backgroundColor = '';
+        }
+    }
+    theadChe.onclick = function() {
+            //如果表头里的复选框是true，表格中所有的复选框都选择，反之，都不选中
+            for (var j = 0; j < tbChecks.length; j++) {
+                tbChecks[j].checked = this.checked;
+            }
+        }
+        //如果除了表头之外所有复选框都选中，表头的复选框自动选中，如果有一个未选中，表头的复选框则不选中
+    for (var i = 0; i < tbChecks.length; i++) {
+        tbChecks[i].onclick = function() {
+            //flag 控制全局复选框是否选中
+            flag = true;
+            //每次点击下面的复选框，都要循环检查4个小按钮是否全被选中
+            for (var i = 0; i < tbChecks.length; i++) {
+                if (!tbChecks[i].checked) {
+                    flag = false;
+                    break;
+                }
+            }
+            theadChe.checked = flag;
+        }
+    }
+</script>
+
+</html>

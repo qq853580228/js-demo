@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(x, y) {
+            console.log('我想吃豆浆');
+            console.log(this);
+            console.log(x + y);
+
+        }
+        // 1.call可以调用fn函数
+        // fn.call();
+        // 2.可以修改fn的this指向
+        var o = {
+
+            }
+            // 此时this指向就不是原来的window，而是指向o
+            // fn.call(o)
+        fn.call(o, 1, 2);
+    </script>
+</body>
+
+</html>

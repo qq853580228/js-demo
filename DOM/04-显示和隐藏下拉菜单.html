@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .app {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dorp {
+            background-color: skyblue;
+            color: #fff;
+            border: 0;
+            width: 80px;
+            height: 40px;
+            font-size: 25px;
+            padding: 0;
+            cursor: pointer;
+        }
+        
+        .lj {
+            position: absolute;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            display: none;
+        }
+        
+        .lj a {
+            text-decoration: none;
+            padding: 5px;
+            color: #333;
+            display: block;
+            text-align: center;
+        }
+        
+        .lj a:hover {
+            color: green;
+        }
+        
+        .app:hover .lj {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <button class="dorp">按钮</button>
+        <div class="lj">
+            <a href="">菜单一</a>
+            <a href="">菜单二</a>
+            <a href="">菜单三</a>
+        </div>
+    </div>
+</body>
+
+</html>

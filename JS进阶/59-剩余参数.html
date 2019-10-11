@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6新增剩余参数：  当形参个数小于实参个数时，可以使用...args接受剩余参数 args是一个标准数组
+        const sum = (...args) => {
+            let total = 0;
+            /* args.forEach((item) => {
+                return total+=item;
+            }); */
+            args.forEach(item => total += item);
+            return total;
+        }
+        console.log(sum(10, 20));
+        console.log(sum(10, 20, 30));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Star {
+
+        }
+        console.log(typeof Star);
+        // 1.类的本质是一个function，我们可以认为类就是构造函数的另外一种写法
+        var ldh = new Star();
+        console.log(ldh.__proto__ === Star.prototype); //true
+    </script>
+</body>
+
+</html>

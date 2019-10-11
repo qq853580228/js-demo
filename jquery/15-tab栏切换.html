@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .tab {
+            width: 990px;
+            margin: 100px auto;
+        }
+        
+        .tab-list {
+            height: 38px;
+            border-bottom: 1px solid #e4393c;
+            background-color: #f7f7f7;
+        }
+        
+        .tab-list ul {
+            list-style: none;
+        }
+        
+        .tab-list ul li {
+            float: left;
+            line-height: 18px;
+            padding: 10px 25px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .tab-list li:hover {
+            color: #e4393c;
+        }
+        
+        .tab-list ul .current {
+            background-color: #e4393c;
+            color: #fff;
+            cursor: default;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab-list">
+            <ul class="item-list">
+                <li class="current">商品介绍</li>
+                <li>规格预包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab-con">
+            <div class="item" style="display: block">商品介绍内容</div>
+            <div class="item">规格预包装内容</div>
+            <div class="item">售后保障内容</div>
+            <div class="item">商品评价内容</div>
+            <div class="item">手机社区内容</div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('.item-list li').click(function() {
+                var index = $(this).index();
+                $(this).addClass('current').siblings('li').removeClass('current');
+                $('.tab-con .item').eq(index).show().siblings('div').hide();
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        // 手指初始X,Y
+        var startX = 0;
+        var startY = 0;
+        // 盒子的初始X,Y
+        var divX = 0;
+        var divY = 0;
+        // 手指触摸事件
+        box.addEventListener('touchstart', function(e) {
+            startX = e.targetTouches[0].pageX;
+            startY = e.targetTouches[0].pageY;
+            divX = this.offsetLeft;
+            divY = this.offsetTop;
+        });
+        // 手指在DOM上移动
+        box.addEventListener('touchmove', function(e) {
+            var moveX = e.targetTouches[0].pageX - startX;
+            var moveY = e.targetTouches[0].pageY - startY
+            this.style.left = divX + moveX + 'px';
+            this.style.top = divY + moveY + 'px';
+            console.log(moveX, moveY);
+            // 阻止屏幕滚动的默认行为
+            e.preventDefault();
+        });
+        // 手指弹开事件
+        /* box.addEventListener('touchend', function() {
+        }); */
+    </script>
+</body>
+
+</html>

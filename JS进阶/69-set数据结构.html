@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.ES6新的数据结构： set  它类似于数组，但是成员是唯一的，没有重复的值 
+        // 2. Set 本身是一个构造函数，用来生成Set数据结构
+        // 3. size返回的是数组存储了几个值
+        // 4. set会过滤初始值
+        var s1 = new Set();
+        console.log(s1.size); //返回的是0
+        var s2 = new Set(['a', 'b', 'c']);
+        console.log(s2.size); //返回的是3
+        var s3 = new Set(['a', 'a', 'b', 'b']);
+        console.log(s3.size); //返回的是2，并不是4
+        // 利用扩展运算符  将s3进行逗号分隔
+        var newS = [...s3];
+        console.log(newS); //返回的是 0: "a"  1: "b"
+    </script>
+</body>
+
+</html>

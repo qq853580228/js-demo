@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="maximum-dpr=2" name="flexible" />
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        img,
+        a,
+        input,
+        textarea {
+            border: 0;
+        }
+        
+        a {
+            color: currentColor;
+            text-decoration: none;
+        }
+        
+        button,
+        select {
+            border: none;
+        }
+        
+        input,
+        button,
+        select,
+        textarea {
+            outline: none;
+            cursor: pointer;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        body {
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: .26rem;
+            color: #333;
+            background: #f0eff5;
+        }
+        
+        .clearfix:after {
+            content: "";
+            height: 0;
+            visibility: hidden;
+            display: block;
+            clear: both;
+        }
+        
+        .clearfix {
+            zoom: 1;
+        }
+        
+        .tabsbox {
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            width: 750px;
+            overflow: hidden;
+        }
+        
+        .firstnav {
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .firstnav li {
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            cursor: default;
+        }
+        
+        .firstnav li.cur {
+            background: pink;
+        }
+        
+        .firstnav li span {
+            line-height: 40px;
+        }
+        
+        .firstnav li input {
+            width: 60px;
+            height: 20px;
+            border: 1px solid cyan;
+            outline: 0;
+        }
+        
+        .firstnav .icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .addtab {
+            float: right;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 30px;
+            border-left: 1px solid #ccc;
+            cursor: pointer;
+        }
+        
+        .tabscon {
+            padding: 12px;
+            height: 300px;
+        }
+        
+        .tabscon section {
+            display: none;
+        }
+        
+        .tabscon section.cur {
+            display: block;
+        }
+        
+        input {
+            width: 80px;
+            height: 32px;
+        }
+    </style>
+</head>
+<!-- 功能 -->
+<!-- 
+    1.点击tab栏，可以切换效果
+    2.点击+号，可以添加tab栏和内容项
+    3.点击X号，删除tab栏和内容项
+    4.双击tab栏或者内容项文字，可以修改里面的文字内容 
+-->
+
+<body>
+    <div id="tab">
+        <div class="tabsbox">
+            <nav class="firstnav">
+                <ul>
+                    <li class="cur"><span>测试1</span><i class="icon">×</i></li>
+                    <li><span>测试2</span><i class="icon">×</i></li>
+                    <li><span>测试3</span><i class="icon">×</i></li>
+                </ul>
+                <div class="addtab">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <div class="tabscon">
+                <section class="cur">测试1</section>
+                <section>测试2</section>
+                <section>测试3</section>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

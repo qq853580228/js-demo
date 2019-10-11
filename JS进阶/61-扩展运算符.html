@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 扩展运算符可以将数组拆分为以逗号分隔的参数序列
+        let arr = ['a', 'b', 'c'];
+        console.log(...arr);
+        //等价于
+        console.log('a', 'b', 'c');
+
+
+        // 扩展运算符应用于合并数组
+        //1.方法一
+        let arr1 = [1, 2, 3];
+        let arr2 = [4, 5, 6];
+        // ...arr1 => 1,2,3
+        // ...arr2 => 4,5,6
+        let arr3 = [...arr1, ...arr2];
+        console.log(arr3); // [1,2,3,4,5,6]
+        // 2.方法2
+        let arr4 = [1, 2, 3];
+        let arr5 = [4, 5, 6];
+        arr4.push(...arr5);
+        console.log(arr4); // [1,2,3,4,5,6]
+    </script>
+</body>
+
+</html>

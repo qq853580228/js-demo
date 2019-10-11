@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点我一下</button>
+    <script>
+        var btn = document.querySelector('button');
+        bind(btn, 'click', function() {
+            alert(this);
+
+        })
+
+        function bind(obj, eventStr, callback) {
+            if (obj.addEventListener) {
+                obj.addEventListener(eventStr, callback, false)
+            } else {
+                obj.attachEvent('on' + eventStr, function() {
+                    // 如果直接写callback，在IE8中，this指向的是window
+                    callback.call(obj);
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

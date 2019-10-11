@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box1,
+        .box2 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        
+        .box1 {
+            background-color: pink;
+            top: 0;
+            left: 0;
+        }
+        
+        .box2 {
+            top: 200px;
+            left: 200px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <p>我是一段文字</p>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <script>
+        var box1 = document.querySelector('.box1');
+        var box2 = document.querySelector('.box2');
+        box1.addEventListener('mousedown', function(e) {
+            box1.setCapture && box1.setCapture();
+            var x = e.pageX - box1.offsetLeft;
+            var y = e.pageY - box1.offsetTop;
+            document.addEventListener('mousemove', move)
+
+            function move(e) {
+                var box1X = e.pageX - x;
+                var box1Y = e.pageY - y;
+                box1.style.left = box1X + 'px';
+                box1.style.top = box1Y + 'px';
+
+            }
+
+            document.addEventListener('mouseup', mouseup)
+
+            function mouseup() {
+                document.removeEventListener('mousemove', move);
+                document.removeEventListener('mouseup', mouseup);
+            }
+            return false;
+        });
+    </script>
+</body>
+
+</html>

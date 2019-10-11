@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 10px 70px 0 70px;
+        }
+        
+        .header {
+            background-color: rgb(252, 72, 72);
+            height: 250px;
+        }
+        
+        .main {
+            background-color: rgb(255, 122, 204);
+            height: 1050px;
+            margin-top: 10px;
+        }
+        
+        .footer {
+            background-color: rgb(38, 197, 157);
+            height: 250px;
+            margin-top: 10px;
+        }
+        
+        .slider-bar {
+            left: 50%;
+            top: 480px;
+            position: absolute;
+            background-color: rgb(212, 98, 21);
+            width: 45px;
+            height: 45px;
+            margin-left: 604px;
+            cursor: pointer;
+        }
+        
+        span {
+            position: absolute;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header"></div>
+    <div class="main"></div>
+    <div class="footer"></div>
+    <script>
+        var sliderBar = document.querySelector('.slider-bar');
+        var main = document.querySelector('.main');
+        var span = document.querySelector('span');
+        var mainTop = main.offsetTop;
+        var sliderBarTop = sliderBar.offsetTop - mainTop;
+        document.addEventListener('scroll', function(e) {
+            if (window.pageYOffset >= mainTop) {
+                sliderBar.style.position = 'fixed';
+                span.style.display = 'block';
+                sliderBar.style.top = sliderBarTop + 'px';
+            } else {
+                sliderBar.style.top = '480px';
+                sliderBar.style.position = 'absolute';
+                span.style.display = 'none';
+            }
+            sliderBar.addEventListener('click', function() {
+                Time(window, 0);
+            });
+        });
+
+        function Time(obj, target, callback) {
+            // callback=function(){}
+
+            // 如果是用按钮触发定时器，就会一直开启新的定时器，导致有多个定时器一起执行
+            // 解决方案 让元素只有一个定时器执行
+            // 先清除以前的定时器，只保留当前的一个定时器执行
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                // step：补偿目标 => 步长公式：(目标值target-现在的位置obj.offsetLeft)/10
+                var step = (target - window.pageYOffset) / 10;
+                // 注意：步长值在计算过程存在小数运算，所以需要手动把步长值进行取整
+                // 步长值为正，步长值往上取整，步长值为负，步长值往下取整
+                step = step > 0 ? Math.ceil(step) : Math.floor(step)
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer);
+                    // 回调函数需要等定时器结束的时候才开始执行
+                    callback() && callback();
+                }
+                // obj.style.left= window.pageYOffset + step + 'px';
+                window.scroll(0, window.pageYOffset + step);
+            }, 15);
+        }
+    </script>
+</body>
+
+</html>

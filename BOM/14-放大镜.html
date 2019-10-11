@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .preview-img {
+            position: relative;
+        }
+        
+        .preview-img img {
+            height: 398px;
+            border: 1px solid #ccc;
+        }
+        
+        .mask {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            background-color: #FEDE4F;
+            opacity: .5;
+            top: 0;
+            left: 0;
+            display: none;
+            border: 1px solid #ccc;
+            pointer-events: none;
+        }
+        
+        .big {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            top: 0;
+            left: 410px;
+            position: absolute;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        
+        .big img {
+            width: 800px;
+            height: 800px;
+            border: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview-img">
+        <div class="previewImg"><img id="previewImg" src="https://img14.360buyimg.com/n0/jfs/t1/83109/19/6504/196481/5d495744E69ec4367/4f93abc4ec2bd34f.jpg" alt=""></div>
+        <div class="mask"></div>
+        <div class="big"><img id="bigImg" src="https://img14.360buyimg.com/n0/jfs/t1/83109/19/6504/196481/5d495744E69ec4367/4f93abc4ec2bd34f.jpg" alt=""></div>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            var Img = document.querySelector('#previewImg');
+            var mask = document.querySelector('.mask');
+            var big = document.querySelector('.big');
+            var bigImg = document.querySelector('#bigImg')
+            Img.addEventListener('mouseover', function() {
+                mask.style.display = 'block';
+                big.style.display = 'block';
+
+            });
+            Img.addEventListener('mouseout', function() {
+                mask.style.display = 'none';
+                big.style.display = 'none';
+            });
+            Img.addEventListener('mousemove', function(e) {
+                var x = e.pageX - Img.offsetLeft;
+                var y = e.pageY - Img.offsetTop;
+                maskX = x - mask.offsetWidth / 2;
+                maskY = y - mask.offsetHeight / 2;
+                maskMaxX = Img.offsetWidth - mask.offsetWidth;
+                maskMaxY = Img.offsetHeight - mask.offsetHeight;
+                if (maskX <= 0) {
+                    maskX = 0;
+                } else if (maskX >= maskMaxX) {
+                    maskX = maskMaxX;
+                }
+                if (maskY <= 0) {
+                    maskY = 0;
+                } else if (maskY >= maskMaxY) {
+                    maskY = maskMaxY;
+                }
+                var bigImgMaxX = bigImg.offsetWidth - big.offsetWidth;
+                var bigImgMaxY = bigImg.offsetHeight - big.offsetHeight;
+                mask.style.left = maskX + 'px';
+                mask.style.top = maskY + 'px';
+                bigX = bigImg.style.left = maskX * bigImgMaxX / maskMaxX;
+                bigY = bigImg.style.top = maskY * bigImgMaxY / maskMaxY;
+                bigImg.style.left = -bigX + 'px';
+                bigImg.style.top = -bigY + 'px';
+            });
+        })
+    </script>
+</body>
+
+</html>

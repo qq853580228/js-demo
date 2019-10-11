@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //递归函数：如果一个函数在内部可以调用其本身，那么这个函数就是做递归函数 （自己调用自己）
+        // 如果没有return ，导致了栈溢出的问题就会报错
+        var num = 1;
+
+        function fn() {
+            console.log('我要打印6句话');
+            if (num == 6) {
+                return; //必须加退出条件
+            }
+            num++;
+            fn();
+        }
+        fn();
+    </script>
+</body>
+
+</html>

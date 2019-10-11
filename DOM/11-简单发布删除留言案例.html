@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            float: right;
+        }
+        
+        ul {
+            width: 250px;
+        }
+        
+        li {
+            background-color: #999;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        btn.onclick = function() {
+            if (text.value == '') {
+                alert('评论内容不能为空！');
+                return false;
+            } else {
+                var li = document.createElement('li');
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                ul.insertBefore(li, ul.children[0]);
+                text.value = '';
+            }
+            var as = document.querySelectorAll('a');
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function() {
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

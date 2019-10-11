@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // defineProperty 定义新属性或者修改原有的属性
+        var obj = {
+            id: 1,
+            pname: 'Motorola',
+            price: 1399
+        }
+        Object.defineProperty(obj, 'num', { //有num这个属性就修改，没有就添加该属性
+            value: 1000
+        });
+        console.log(obj);
+        Object.defineProperty(obj, 'price', {
+            value: 399
+        });
+        console.log(obj);
+        /* Object.defineProperty(obj, 'id', {
+            writable: false //不允许修改这个属性，默认值为false
+        }); */
+        Object.defineProperty(obj, 'id', {
+            writable: true //不允许修改这个属性，默认值为false
+        });
+        obj.id = 2; //传统方式来修改或者添加obj新属性的方法
+        console.log(obj);
+        Object.defineProperty(obj, 'address', {
+            value: '中国山东找蓝翔',
+            enumerable: false //这个属性值为false，则不允许被遍历
+        });
+        console.log(Object.keys(obj));
+        Object.defineProperty(obj, 'address', {
+            value: '中国山东找蓝翔',
+            configurable: false //这个属性值为false，则address不允许被修改或删除
+        });
+        console.log(obj);
+        Object.defineProperty(obj, 'address', {
+            value: '中国山东找蓝翔111',
+            configurable: true
+        });
+    </script>
+</body>
+
+</html>

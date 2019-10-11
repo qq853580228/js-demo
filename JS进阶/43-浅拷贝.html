@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 浅拷贝只是拷贝一层，更深层次对象级别的只拷贝引用，相当于被拷贝的对象把内存地址给了自己，让自己也指向与被拷贝对象相同的地址，修改属性值，两个对象都会发生改变
+
+        var obj = {
+            id: 1,
+            name: 'andy',
+            sex: '男',
+            msg: {
+                age: 18
+            }
+        }
+        var o = {};
+        /*  for (var k in obj) {
+             o[k] = obj[k];
+         }
+         console.log(o);
+         o.msg.age = 20;
+         console.log(obj); */
+        // ES6新方法  Object.assign也是浅拷贝的一种方式
+        Object.assign(o, obj);
+        console.log(o);
+        o.msg.age = 20;
+        console.log(obj);
+    </script>
+</body>
+
+</html>

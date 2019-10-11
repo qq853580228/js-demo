@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        // 手指触摸事件
+        box.addEventListener('touchstart', function() {
+            console.log('累了累了');
+            // touches 正在触摸的手指所有列表
+            // targetTouches 正在触摸当前DOM元素的手指所有列表
+            // changedTouches 手指状态发生了列表改变从无到有或者从有到无
+            // targetTouches[0] 可以获得触摸DOM元素的第一个手指列表信息，比如坐标等等
+        });
+        // 手指在DOM上移动
+        box.addEventListener('touchmove', function() {
+            console.log('biubiu~');
+
+        });
+        // 手指弹开事件
+        box.addEventListener('touchend', function() {
+            console.log('溜了溜了');
+            // 当我们手指离开了屏幕的时候，就没有touches和targetTouches列表，但是会有changedTouches
+        });
+    </script>
+</body>
+
+</html>

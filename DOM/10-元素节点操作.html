@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="demo">
+        <p class="content">box的上一个兄弟节点</p>
+        <div class="box">
+            <p class="content">1</p>
+            <p class="content">2</p>
+            <p class="content">3</p>
+            <p class="content">4</p>
+        </div>
+        <p class="content">box的下一个兄弟节点</p>
+    </div>
+    <script>
+        // 父元素节点操作
+        var pParent = document.querySelector('p'); //box子元素节点：p
+
+        console.log(pParent.parentNode);
+        // 子元素节点操作
+        var pChild = document.querySelector('.box');
+        // 存在兼容性问题的写法
+        console.log(pChild.firstElementChild);
+        console.log(pChild.lastElementChild);
+        // 没有兼容性问题的写法
+        console.log(pChild.children[0]);
+        console.log(pChild.children[pChild.children.length - 1]);
+        // box的上一个兄弟节点，包括元素节点和文本节点
+        console.log(pChild.previousSibling);
+        // box的下一个兄弟节点，包括元素节点和文本节点
+        console.log(pChild.nextSibling);
+        // box的上一个兄弟节点，只包括元素节点
+        console.log(pChild.previousElementSibling);
+        // box的下一个兄弟节点，只包括元素节点
+        console.log(pChild.nextElementSibling);
+    </script>
+</body>
+
+</html>

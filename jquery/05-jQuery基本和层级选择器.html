@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div>我的div</div>
+    <div class="nav">我是nav div</div>
+    <ul>
+        <li>我是ul的li</li>
+        <li>我是ul的li</li>
+        <li>我是ul的li</li>
+        <li>我是ul的li</li>
+    </ul>
+    <ol>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+    </ol>
+    <script>
+        $(function() {
+            // 获取div的这个元素
+            /* console.log($('div')); */
+            // 获取类名为.nav的div元素
+            /* console.log($('div.nav')); */
+            // 获取ul里面的所有元素
+            /* console.log($('ul li')); */
+            // 获取ul亲儿子层级的所有li元素
+            /* console.log($('ul>li')); */
+            // 获取ul和ol里面的li亲儿子元素
+            console.log($('ul>li,ol>li'));
+        })
+    </script>
+</body>
+
+</html>

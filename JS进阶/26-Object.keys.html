@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            pname: '华为',
+            price: 999,
+            num: 10
+        }
+        var arr = Object.keys(obj); //用于获取对象的所有属性名，返回的是一个数组,for in 需要push到数组中，比较麻烦
+        console.log(arr);
+        arr.forEach(function(value) {
+            console.log(value);
+
+        });
+    </script>
+</body>
+
+</html>

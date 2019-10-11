@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function() {
+            var targetObj = {
+                age: 20,
+                msg: {
+                    no: 1
+                }
+            };
+            var obj = {
+                name: "andy",
+                age: 18,
+                msg: {
+                    id: 1
+                }
+            };
+            // $.extend(targetObj, obj);
+            /* 1.简单数据类型，浅拷贝下，修改目标对象的值不会影响被拷贝对象的值，复杂数据类型如obj把地址拷贝给目标对象，
+            修改目标对象里msg的值会影响被拷贝对象的msg值 */
+            // targetObj.name = "zjl";
+            /* 2.深拷贝，被拷贝对象里的数据复制一份给目标对象，如有不冲突的属性，会合并在一起，msg里的属性会合并 */
+            // targetObj.msg.id = 2; //此时obj里的msg的id值也被修改，等于2
+            $.extend(true, targetObj, obj);
+            console.log(targetObj);
+        });
+    </script>
+</body>
+
+</html>

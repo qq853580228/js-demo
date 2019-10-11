@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="grandfather">
+        <div class="father">
+            我是son的爸爸
+            <div class="son">我是儿子</div>
+        </div>
+    </div>
+    <ul>
+        <li>我是ul的li</li>
+        <li>我是ul的li</li>
+        <li class="item">我是ul的li,我有item</li>
+        <li>我是ul的li</li>
+        <li>我是ul的li</li>
+        <li>我是ul的li</li>
+    </ul>
+    <ol>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+    </ol>
+    <script>
+        $(function() {
+            // 选出.son的亲爸爸
+            /* console.log($('.son').parent()); */
+            // 选出.father的亲儿子
+            /* console.log($('.father').children('div')); */
+            // 选出.grandfather的所有子级元素，包括div孙元素
+            /* console.log($('.grandfather').find('div')); */
+            // siblings除了当前元素的所有li兄弟
+            /* $('li.item').siblings('li').css('color', 'red'); */
+            // nextAll筛选出当前元素之后的所有li兄弟
+            /* $('li.item').nextAll('li').css('color', 'red'); */
+            // prevAll筛选出当前元素之前的所有li兄弟
+            $('li.item').prevAll('li').css('color', 'red');
+            // 利用选择器筛选某个元素
+            /* $('ol>li:eq(2)').css('color', 'blue'); */
+            // 利用选择方法筛选某个元素    **推荐
+            $('ol>li').eq(2).css('color', 'blue');
+
+        })
+    </script>
+</body>
+
+</html>

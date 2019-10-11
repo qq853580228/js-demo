@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function() {
+            // 1.each主要用于遍历DOM元素
+            var arr = ["red", "green", "blue"];
+            $("div").each(function(index, domEle) {
+                // domEle是DOM对象 需要转换成jQuery对象
+                $(domEle).css("color", arr[index]);
+            });
+            $(arr).each(function(index, domEle) {
+                // domEle是DOM对象 需要转换成jQuery对象
+
+                console.log(domEle);
+            });
+            // 2.$.each可以用遍历数组，对象，用来处理数据
+            $.each($("div"), function(index, ele) {
+
+                console.log(ele);
+            });
+            $.each($(arr), function(index, ele) {
+                console.log(ele);
+            });
+            $.each({
+                name: "andy",
+                age: 18
+            }, function(index, ele) {
+
+                console.log(ele);
+            });
+        });
+    </script>
+</body>
+
+</html>

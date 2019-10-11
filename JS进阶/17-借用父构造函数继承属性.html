@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(name, age) {
+            // this指向的是父构造函数的实例对象
+            this.name = name;
+            this.age = age;
+        }
+
+        function Son(name, age, score) {
+            // this指向的是自构造函数的实例对象
+            // 利用call来修改Father构造函数的this指向，使Father构造函数的this指向Son，从而使Son构造方法继承Father的属性
+            Father.call(this, name, age);
+            // 可以继承父构造函数的属性，也可以自定义属性
+            this.score = score;
+        }
+        var son = new Son('刘德华', 17, 100);
+        console.log(son);
+    </script>
+</body>
+
+</html>

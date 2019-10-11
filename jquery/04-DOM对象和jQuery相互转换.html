@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <video src="https://1251250874.vod2.myqcloud.com/439f276avodtransgzp1251250874/cc3140e65285890788097387748/v.f20.mp4" muted="muted"></video>
+    <script>
+        // 1.DOM对象转换为jQuery对象
+        var myVideo = document.querySelector('video');
+        // 直接获取视频得到的就是jQuery对象
+        $('video');
+        // 转换的时候不需要加引号
+        // $(myVideo).play();jQuery里面没有play这个方法
+        // 2.jQuery对象转换为DOM对象
+        /* myVideo.play(); */
+        // jQuery对象是伪数组的形式
+        // 方法1
+        /* $('video')[0].play(); */
+        // 方法2
+        $('video').get(0).play();
+    </script>
+</body>
+
+</html>

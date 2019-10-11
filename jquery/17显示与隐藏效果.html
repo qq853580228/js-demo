@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+    <script>
+        $(function() {
+            // 默认不给参数
+            /*  $('button').eq(0).click(function() {
+                 $('div').show();
+             });
+             $('button').eq(1).click(function() {
+                 $('div').hide();
+             });
+             $('button').eq(2).click(function() {
+                 $('div').toggle();
+             }); */
+            $('button').eq(0).click(function() {
+                $('div').show(1000, function() {
+                    alert(1);
+                });
+            });
+            $('button').eq(1).click(function() {
+                $('div').hide('slow', function() {
+                    alert(2);
+                });
+            });
+            $('button').eq(2).click(function() {
+                $('div').toggle('fast', function() {
+                    alert(3)
+                });
+            });
+        })
+    </script>
+</body>
+
+</html>

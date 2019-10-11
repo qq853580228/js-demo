@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #000;
+        }
+        
+        .wrap {
+            width: 630px;
+            height: 394px;
+            margin: 100px auto;
+            padding: 10px 0 0 10px;
+            border: 1px solid #ccc;
+        }
+        
+        .wrap ul {
+            list-style: none;
+        }
+        
+        .wrap ul li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+        
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="#"><img src="files/23-高亮显示案例/images/01.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="files/23-高亮显示案例/images/02.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="files/23-高亮显示案例/images/03.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="files/23-高亮显示案例/images/04.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="files/23-高亮显示案例/images/05.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="files/23-高亮显示案例/images/06.jpg" alt=""></a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(function() {
+            // hover 相当于 mouseover(){}  和  mouseout(){}的结合使用方法
+            $(".wrap>ul>li").hover(function() {
+                $(this).stop().fadeTo(200, 1).siblings('li').stop().fadeTo(200, .5);
+            }, function() {
+                $(this).siblings().stop().fadeTo(200, 1);
+            });
+        });
+    </script>
+</body>
+
+</html>

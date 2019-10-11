@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <script>
+        var o = {
+            name: 'red'
+        }
+
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+
+        }
+        var f = fn.bind(o, 1, 2);
+        f();
+        // 1.bind绑定，捆绑的意思，可以修改this的指向，但不会调用原来的函数
+        // 2.返回的是原函数改变this指向之后的函数
+        // 3.我们有一个按钮，当我们点击了之后，就禁用这个按钮，2秒钟之后就开启这个按钮
+        // var btn = document.querySelector('button');
+        /*  btn.onclick = function() {
+             this.disabled = true; this指向的是调用者btn
+             setTimeout(function() {
+                 btn.disabled = false; 定时器里的this指向的是window，所以这里不能写this，所以我们可以使用bind修改this指向又不会立即执行这个函数,因为定时器里不需要立即执行
+             }, 2000);
+         } */
+        /*  btn.onclick = function() {
+             this.disabled = true;
+             setTimeout(function() {
+                 this.disabled = false;
+             }.bind(this), 2000); //bind里面不要直接写btn，因为如果有多个按钮的时候，就不知道我们点击的是哪个按钮
+         } */
+        var btns = document.querySelectorAll('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                this.disabled = true;
+                setTimeout(function() {
+                    this.disabled = false;
+                }.bind(this), 2000); //bind里面不要直接写btn，因为如果有多个按钮的时候，就不知道我们点击的是哪个按钮
+            }
+        }
+    </script>
+</body>
+
+</html>

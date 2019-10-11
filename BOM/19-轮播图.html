@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简单轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*//易错点：进行动画的ul必须进行绝对定位才能够进行动画移动；*/
+        
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        li {
+            float: left;
+            list-style: none;
+        }
+        
+        .all {
+            width: 500px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .all ul {
+            width: 220px;
+            height: 220px;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        ol {
+            width: 130px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        ol li {
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            color: #000;
+            float: left;
+            margin-left: 10px;
+            text-align: center;
+            line-height: 15px;
+        }
+        
+        li.current {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!--利用克隆的方法-->
+    <!--img{w500;h200}-->
+    <div class="all" id="all">
+        <div class="screen">
+            <ol class="carousel-indicators">
+                <li data-target="#banner" data-slide-to="0" class="active"></li>
+                <li data-target="#banner" data-slide-to="1"></li>
+                <li data-target="#banner" data-slide-to="2"></li>
+                <li data-target="#banner" data-slide-to="3"></li>
+            </ol>
+            <ul id="ul">
+                <li><img src="https://img.alicdn.com/imgextra/i1/24018127/O1CN01J1IUyA29uDNY3szBi_!!0-saturn_solar.jpg_220x220.jpg_.webp" alt=""></li>
+                <li><img src="https://img.alicdn.com/imgextra/i3/13825862/O1CN01Z2KANA1tAqGYpYETB_!!0-saturn_solar.jpg_220x220.jpg_.webp" alt=""></li>
+                <li><img src="https://img.alicdn.com/imgextra/i4/43632088/O1CN01nxWmSE1RILTuONiRN_!!0-saturn_solar.jpg_220x220.jpg_.webp" alt=""></li>
+                <li><img src="https://img.alicdn.com/imgextra/i3/28300225/O1CN01P1HPg81DX5fLLMTzd_!!0-saturn_solar.jpg_220x220.jpg_.webp" alt=""></li>
+                <li><img src="https://img.alicdn.com/imgextra/i2/116032579/O1CN01FMuouP1UvE0Li14bI_!!0-saturn_solar.jpg_220x220.jpg_.webp" alt=""></li>
+            </ul>
+            <a href="javascript:;" class="left">‹</a>
+            <a href="javascript:;" class="right">›</a>
+        </div>
+    </div>
+</body>
+
+</html>

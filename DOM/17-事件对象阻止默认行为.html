@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+
+    <script>
+        var div = document.querySelector('div');
+        var a = document.querySelector('a');
+        div.addEventListener('click', fn);
+        div.addEventListener('mouseover', fn);
+        div.addEventListener('mouseout', fn);
+        // e.type打印事件类型
+        function fn(e) {
+            console.log(e.type);
+        }
+        // 阻止默认行为（事件），让链接不跳转
+        /* a.addEventListener('click', function(e) {
+                e.preventDefault();
+            }) */
+        // 传统注册方式
+        a.onclick = function(e) {
+            // 普通浏览器使用 e.preventDefault();
+            // 低版本浏览器ie（678）使用 e.returnValue;
+            // return false;没有兼容性问题，但return后面的代码不执行，也仅限在传统注册方式中使用
+            return false;
+            alert('111');
+        }
+    </script>
+</body>
+
+</html>

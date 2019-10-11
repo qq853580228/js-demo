@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg {
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one two"></div>
+    <button>开关灯</button>
+    <script>
+        var div = document.querySelector('div');
+        var btn = document.querySelector('button');
+        // 添加类名 是在后面追加类名，不会覆盖以前的类名 注意前面不加.
+        div.classList.add('three');
+        // 删除类名
+        div.classList.remove('one');
+        // 切换类名 有此类名则删除，没有此类名则添加
+        btn.addEventListener('click', function() {
+            document.body.classList.toggle('bg');
+        })
+    </script>
+</body>
+
+</html>

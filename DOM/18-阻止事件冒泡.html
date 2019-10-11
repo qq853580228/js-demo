@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father {
+            background-color: rgb(219, 39, 39);
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            position: relative;
+            margin: 100px auto;
+        }
+        
+        .son {
+            background-color: rgb(62, 170, 241);
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+    <script>
+        // addEventListener第三个参数为true，处于捕获阶段
+        /* var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function() {
+            alert('son');
+        }, true);
+        father.addEventListener('click', function() {
+            alert('father');
+        }, true); */
+        // addEventListener第三个参数为false或者为空，处于冒泡阶段
+
+        // e.stopPropagation();阻止冒泡行为
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function(e) {
+            alert('son');
+            e.stopPropagation();
+        }, false);
+        father.addEventListener('click', function(e) {
+            alert('father');
+            e.stopPropagation();
+        }, false);
+        document.addEventListener('click', function() {
+            alert('document');
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('click', function(e) {
+            // 鼠标在可视化文档的坐标
+            console.log(e.clientX);
+            console.log(e.clientY);
+        });
+        document.addEventListener('click', function(e) {
+            // 页面高度比较高的时候，也可以得到相应高度的鼠标坐标
+            console.log(e.pageX);
+            console.log(e.pageY);
+        });
+    </script>
+</body>
+
+</html>

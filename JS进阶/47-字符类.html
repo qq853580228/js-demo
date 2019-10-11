@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var rg = /abc/; 只要包含abc就为true，需要连在一起
+        // 字符类：[] 表示有一系列字符可供选择，只要匹配其中一个就可以了
+        /*  var rg = /[abc]/; 只要包含有a或者包含b或者包含c其中的一个 都返回true
+         console.log(rg.test('andy')); //true
+         console.log(rg.test('baby'));//true
+         console.log(rg.test('cindy'));//true
+         console.log(rg.test('dady'));//false */
+        /*  var reg = /^[abc]$/; //  三选一，只有是a 或者只有是b 或者只有是c 返回true
+         console.log(reg.test('a'));//true
+         console.log(reg.test('b'));//true
+         console.log(reg.test('c'));//true
+         console.log(reg.test('aa'));//false */
+        /* var reg1 = /^[a-z]$/; //只有是a-z的26个小写英文字母其中的一个 返回true
+        console.log(reg1.test('a')); //true
+        console.log(reg1.test('b')); //true
+        console.log(reg1.test('c')); //true
+        console.log(reg1.test(1)); //false 
+        console.log(reg1.test('A')); //false  */
+        /* var reg2 = /^[a-zA-Z]$/; //26个英文字母(不区分大写和小写)其中的一个 返回true
+        console.log(reg2.test('a')); //true
+        console.log(reg2.test('b')); //true
+        console.log(reg2.test(2)); //false 
+        console.log(reg2.test('A')); //true
+        console.log(reg2.test('/')); //false */
+        /* var reg3 = /^[a-zA-Z0-9_-]$/; //只包含26个大小写英文字母，0-9和 _ -的其中一个 返回true
+        console.log(reg3.test('a')); //true
+        console.log(reg3.test('B')); //true
+        console.log(reg3.test(3)); //true 
+        console.log(reg3.test('_')); //true
+        console.log(reg3.test('-')); //true
+        console.log(reg3.test('/')); //false */
+
+        // 如果[]里面有^ 表示取反的意思 千万别和边界符 ^ 混淆
+        var reg3 = /^[^a-zA-Z0-9_-]$/;
+        console.log(reg3.test('a')); //false
+        console.log(reg3.test('B')); //false
+        console.log(reg3.test(3)); //false 
+        console.log(reg3.test('_')); //false
+        console.log(reg3.test('-')); //false
+        console.log(reg3.test('/')); //true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //对象解构允许我们使用变量的名字匹配我们对象的属性，匹配成功候，将对象属性的值赋值给变量
+        let person = {
+            name: 'zhangsan',
+            age: 18
+        };
+        /*  let {
+             // 对象解构里的变量名必须与person对象里的属性名保持一致，不然回结构失败返回undefined
+             name,
+             age
+         } = person; 
+          console.log(name);
+          console.log(age);*/
+
+        // 这样的写法，name 只用于属性匹配，myName和myAge才是真正的变量
+        let {
+            name: myName,
+            age: myAge
+        } = person;
+
+        console.log(myName);
+        console.log(myAge);
+    </script>
+</body>
+
+</html>

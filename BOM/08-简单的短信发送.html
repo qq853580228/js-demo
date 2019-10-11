@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    手机号码：<input type="text"> <button>发送</button>
+    <script>
+        // 1.点击按钮时，将按钮禁用
+        // 2.按钮的内容开始变化，button的内容是通过innerHTML来修改
+        // 3.秒数的变化需要用到定时器
+        // 4.在定时器中判断，如果second变量为0的时候，需要还原为初识状态 
+        // 5.***而且需要将second变量重新赋值为原始值***
+        var btn = document.querySelector('button');
+        var second = 3;
+        btn.addEventListener('click', function() {
+            btn.disabled = true;
+            var time = setInterval(function() {
+                if (second == 0) {
+                    clearInterval(time);
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    second = 3;
+                } else {
+                    btn.innerHTML = '还剩' + second + '秒可再次发送';
+                    second--;
+                }
+            }, 1000);
+
+        });
+    </script>
+</body>
+
+</html>

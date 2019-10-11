@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body><button>点击</button>
+    <script>
+        var that;
+        var _that;
+        // var ldh = new Star('刘德华');
+        // ldh.sing();
+        class Star {
+            constructor(name, age) {
+                // constructor里面的this指向的是  创建的实例对象,如ldh这个实例对象
+                that = this;
+                console.log(this);
+                this.name = name;
+                this.age = age;
+                // sing();这里需要说明是谁调用了sing（）这个方法
+                // this.sing(); this指向的是ldh这个实例对象
+                this.btn = document.querySelector('button');
+                this.btn.onclick = this.sing; //这里都需要加this，是谁点击了btn和谁调用了sing
+            }
+            sing() {
+                // 此时sing的this是指向了调用者btn，因为btn调用了this
+                // console.log('hi');
+                // console.log(name);不加this是获取不到name的
+                console.log(this.name); //因为btn没有name这个属性 所以为空
+                console.log(this); //这里输出button
+                console.log(that.name); //因为that存储了constructor的this，所以输出刘德华
+
+            }
+            dance() {
+                // 普通方法dance中的this指向的是ldh，是因为ldh调用了这个函数
+                console.log(this);
+                _that = this;
+            }
+        }
+        var ldh = new Star('刘德华');
+        console.log(that === ldh);
+        ldh.dance();
+        console.log(_that === ldh);
+
+
+        // ldh.sing();
+        // 1.在ES6中，类没有提升变量，所以必须先有类，才能通过类实例化对象
+        // 2.类里面的共有属性和方法一定要加this调用
+    </script>
+</body>
+
+</html>

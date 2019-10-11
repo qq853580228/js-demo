@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>传统注册方式</button>
+    <button>事件监听注册事件</button>
+    <script>
+        //传统注册方式具有唯一性，后面的事件处理会覆盖前面的事件处理
+        var btns = document.querySelectorAll('button');
+        btns[0].onclick = function() {
+            alert('hi');
+        };
+        btns[0].onclick = function() {
+            alert('hello');
+        };
+        //事件监听注册事件 addEventListener
+        // （1）事件类型是字符串，带引号，不加on
+        // （2）同一个元素，同一个事件可以添加多个监听器（事件处理程序）
+        btns[1].addEventListener('click', function() {
+            alert('11');
+        });
+        btns[1].addEventListener('click', function() {
+            alert('22');
+        });
+    </script>
+</body>
+
+</html>

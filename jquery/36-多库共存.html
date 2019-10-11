@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        $(function() {
+            function $(ele) {
+                return document.querySelector(ele);
+            }
+            console.log($("div"));
+            // jQuery使用$符号与其他的js库冲突，需要一个解决方案，让jQuery与其他js库不存在冲突，可以同时存在叫多库共存
+            // 方案1.jQuery里的$改成jQuery
+            jQuery.each();
+            // 方案2.jQuery变量规定新的名称$.noConflict()或jQuery.noConflict()  noConflict=>不冲突
+            // 释放了对$符号的控制权，让用户自己决定
+            var suibian = jQuery.noConflict();
+            console.log(suibian("span"));
+            console.log(suibian.each());
+
+        })
+    </script>
+</body>
+
+</html>

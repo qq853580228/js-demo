@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .table,
+        .tableAdd {
+            margin: 150px auto;
+            border-collapse: collapse;
+            line-height: 35px;
+            width: 800px;
+            text-align: center;
+        }
+        
+        .tableAdd {
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+        
+        .table tr {
+            padding: 0 20px;
+        }
+        
+        .table thead {
+            background: cyan;
+        }
+        
+        .table tbody tr {
+            color: darkblue;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <table class="tableAdd">
+            <thead>
+                <tr>
+                    <th>添加新学生</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="">姓名：</label><input type="text" id="name" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">科目：</label><input type="text" id="subject" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">成绩：</label><input type="text" id="score" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">年龄：</label><input type="text" id="age" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="submit" id="submit"></td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            var tbody = document.querySelector('table').querySelector('tbody');
+            var addName = document.querySelector('#name');
+            var addSubject = document.querySelector('#subject');
+            var addScore = document.querySelector('#score');
+            var addAge = document.querySelector('#age');
+            var submit = document.querySelector('#submit');
+            var datas = [{
+                name: '鲍立升',
+                subject: 'HTML5',
+                score: 80,
+                age: 30
+            }, {
+                name: '鲍里升',
+                subject: 'JAVA',
+                score: 82,
+                age: 40
+            }, {
+                name: '鲍力升',
+                subject: 'C++',
+                score: 84,
+                age: 50
+            }, {
+                name: '鲍丽升',
+                subject: 'CSS',
+                score: 85,
+                age: 60
+            }];
+
+            for (var i = 0; i < datas.length; i++) {
+                var tr = document.createElement('tr');
+                tbody.appendChild(tr);
+                for (var k in datas[i]) {
+                    var td = document.createElement('td');
+                    td.innerText = datas[i][k];
+                    tr.appendChild(td);
+                }
+                var td = document.createElement('td');
+                td.innerHTML = "<a href='javascript:;'>删除</a>";
+                tr.appendChild(td);
+            }
+            var a = document.querySelectorAll('a');
+            for (var i = 0; i < a.length; i++) {
+                a[i].addEventListener('click', function() {
+                    var tr = this.parentNode.parentNode;
+                    var name = tr.children[0].innerHTML;
+
+                    tbody.removeChild(this.parentNode.parentNode);
+
+                });
+            }
+            submit.addEventListener('click', function() {
+                var tr = document.createElement('tr');
+                var nameTd = document.createElement('td');
+                nameTd.innerHTML = addName.value;
+                var SubjectTd = document.createElement('td');
+                SubjectTd.innerHTML = addSubject.value;
+                var scoreTd = document.createElement('td');
+                scoreTd.innerHTML = addScore.value;
+                var ageTd = document.createElement('td');
+                ageTd.innerHTML = addAge.value;
+                var aTd = document.createElement('td');
+                aTd.innerHTML = "<a href='javascript:;'>删除</a>";
+                tbody.appendChild(tr);
+                tr.appendChild(nameTd);
+                tr.appendChild(SubjectTd);
+                tr.appendChild(scoreTd);
+                tr.appendChild(ageTd);
+                tr.appendChild(aTd);
+
+                var a = document.querySelectorAll('a');
+                for (var i = 0; i < a.length; i++) {
+                    a[i].addEventListener('click', function(e) {
+
+                        var tr = this.parentNode.parentNode;
+                        var name = tr.children[0].innerHTML;
+
+                        tbody.removeChild(this.parentNode.parentNode);
+
+                    });
+                }
+            });
+        </script>
+</body>
+
+</html>

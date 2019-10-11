@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="files/jquery-3.4.1.min.js"></script>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 高阶函数： 把一个函数当作参数传递或者return function(){}，此时的fn就是一个高阶函数
+        function fn(a, b, callback) {
+            console.log(a + b);
+            callback && callback();
+        }
+        fn(1, 2, function() {
+            console.log('我是最后输出的');
+
+        });
+        $("div").animate({
+            lerft: 500
+        }, function() {
+            $(this).css("backgroundColor", "red");
+        });
+    </script>
+</body>
+
+</html>

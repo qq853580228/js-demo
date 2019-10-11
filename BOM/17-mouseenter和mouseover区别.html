@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father {
+            background-color: rgb(219, 39, 39);
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            position: relative;
+            margin: 100px auto;
+        }
+        
+        .son {
+            background-color: rgb(62, 170, 241);
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+    <script>
+        // mouseover和mouseenter都是鼠标经过出发的事件，mouseover经过父和子两个盒子，打印了两次11，而mouseover只有经过父盒子，才打印11
+        // 是由于mouseover存在冒泡行为，而mouseenter不存在冒泡行为，所以mouseenter事件只有经过自身盒子才触发
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        /* father.addEventListener('mouseover', function() {
+                console.log(11);
+
+            }) */
+        father.addEventListener('mouseenter', function() {
+            console.log(22);
+
+        })
+    </script>
+</body>
+
+</html>

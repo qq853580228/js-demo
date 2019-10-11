@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* let arr = [];
+                for (var i = 0; i < 2; i++) {
+                    arr[i] = function() {
+                        console.log(i);
+
+                    }
+                }
+                arr[0](); //2
+                arr[1](); //2 */
+
+        /* let声明的变量 i 与 var声明的变量 i 是不同的，var声明的 i 是全局变量，函数执行时输出的都是全局作用域下的值，
+        因为回调函数会在for循环完毕后才执行，此时 i 等于2
+        let声明的变量具有块级作用域，所以每次循环都会产生块级作用域每个块级作用域中的变量都是不同的，函数执行时输出的是
+        自己的上一级（循环产生的块级作用域）作用域下 i 的值。 */
+        let arr = [];
+        for (let i = 0; i < 2; i++) {
+            arr[i] = function() {
+                console.log(i);
+
+            }
+        }
+        arr[0](); //0
+        arr[1](); //1
+    </script>
+</body>
+
+</html>

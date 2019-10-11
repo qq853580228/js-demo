@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="text">
+    <script>
+        $(function() {
+            $("div").on("click", function() {
+                alert(11);
+            });
+            // 自动触发事件
+            // 1.$("div").click()
+            // $("div").click();
+            // 2.$("div").trigger("type事件类型")
+            // $("div").trigger("click");
+            // 不同于前两个形式的是，triggerHandler会阻止默认事件
+            // $("div").triggerHandler("click");
+            $("input").on("focus", function() {
+                $(this).val("周杰伦");
+            });
+            // 没有光标
+            // $("input").triggerHandler("focus");
+            // 有光标
+            // $("input").trigger("focus");
+            // 有光标
+            $("input").focus();
+        });
+    </script>
+</body>
+
+</html>

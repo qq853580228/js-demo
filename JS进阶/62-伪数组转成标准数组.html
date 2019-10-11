@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 1.利用扩展运算符实现伪数组向标准数组的转换
+
+        /* let divs = document.querySelectorAll('div');
+        console.log(divs);     伪数组表现形式  {"0":div,"1":div,"2":div,"3":div,"length":4}
+        let arr = [...divs]
+        console.log(arr); */
+
+
+        // 2.利用Array的扩展方法  Array.from()  实现伪数组向标准数组的转换
+        let arrayLike = {
+            "0": "张三",
+            "1": "李四",
+            "2": "王五",
+            "length": 3
+        };
+        console.log(arrayLike);
+        let ary = Array.from(arrayLike);
+        console.log(ary);
+
+
+        let arrayLike1 = {
+            "0": 2,
+            "1": 4,
+            "2": 6,
+            "length": 3
+        };
+        // 3.Array.from()  还可以接受第二个参数，作用类似于数组的map的方法，用来对每个元素进行处理，将处理后的值放入返回的数组
+        let newArr = Array.from(arrayLike1, item => item * 2); //对伪数组每项都乘以2 返回新数组
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

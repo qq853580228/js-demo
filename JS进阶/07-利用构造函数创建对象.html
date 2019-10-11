@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // E6前
+        function Star(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sing = function() {
+                console.log('我不会唱歌');
+            }
+        }
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 19);
+        console.log(ldh);
+        console.log(zxy);
+        ldh.sing();
+        zxy.sing();
+        // new在执行时会做四件事情
+        // 1.在内存中创建一个空的对象
+        // 2.让this指向这个新的对象
+        // 3.执行构造函数里面的代码，给这个新对象添加属性和方法
+        // 4.返回这个对象（所以构造函数不需要 return）
+    </script>
+</body>
+
+</html>
